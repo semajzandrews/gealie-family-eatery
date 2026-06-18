@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gealie Family Eatery · Jamaican Home Cooking on Main St, Orange NJ</title>
+<meta name="description" content="Gealie Family Eatery serves authentic Jamaican home cooking on Main Street in the City of Orange, New Jersey. Oxtail, jerk chicken, curry goat, rice and peas, and patties cooked fresh daily." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=sentient@400,500,700,1&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://images.pexels.com" crossorigin />
+<style>
+  :root{
+    --cream:#FBF6EC;
+    --cream-2:#F4ECDA;
+    --ink:#26201A;
+    --ink-soft:#5A5045;
+    --teal:#2C8C7D;
+    --teal-deep:#1F6357;
+    --gold:#D89A3A;
+    --pepper:#B7472B;
+    --line:rgba(38,32,26,.12);
+    --shadow:0 18px 50px -22px rgba(38,32,26,.45);
+    --display:'Sentient',Georgia,serif;
+    --body:'General Sans',system-ui,sans-serif;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--body);
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spacing:-.01em}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(18px,5vw,40px)}
+  .kicker{
+    font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal-deep);display:inline-flex;align-items:center;gap:.55rem;
+  }
+  .kicker::before{content:"";width:26px;height:1.5px;background:var(--teal);display:inline-block}
+
+  /* ===== Entrance (pure CSS, visible-by-default safe) ===== */
+  .rise{opacity:1;transform:none}
+  .reveal-armed .rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .reveal-done .rise{animation:none!important;opacity:1!important;transform:none!important}
+  @media (prefers-reduced-motion:reduce){
+    .reveal-armed .rise{animation:none}
+    *{scroll-behavior:auto!important}
+  }
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(251,246,236,.82);
+    backdrop-filter:saturate(1.3) blur(12px);
+    -webkit-backdrop-filter:saturate(1.3) blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease,box-shadow .3s ease;
+  }
+  header.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 10px 30px -24px rgba(38,32,26,.5)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:1.16rem;letter-spacing:-.01em}
+  .brand .mark{
+    width:34px;height:34px;border-radius:50%;flex:0 0 auto;
+    background:radial-gradient(circle at 32% 30%,var(--teal),var(--teal-deep));
+    color:#FBF6EC;display:grid;place-items:center;font-size:.95rem;font-weight:700;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);
+  }
+  .brand small{display:block;font-family:var(--body);font-weight:600;font-size:.56rem;letter-spacing:.2em;color:var(--teal-deep);text-transform:uppercase;margin-top:1px}
+  .nav-links{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+  .nav-links a.lnk{font-weight:500;font-size:.92rem;color:var(--ink-soft);position:relative;padding:.25rem 0}
+  .nav-links a.lnk::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--teal);transition:width .3s ease}
+  .nav-links a.lnk:hover{color:var(--ink)}
+  .nav-links a.lnk:hover::after,.nav-links a.lnk:focus-visible::after{width:100%}
+  .call-cta{
+    display:inline-flex;align-items:center;gap:.5rem;background:var(--teal);color:#FBF6EC;
+    font-weight:600;font-size:.9rem;padding:.6rem 1.1rem;border-radius:999px;
+    box-shadow:0 10px 24px -12px rgba(31,99,87,.8);transition:transform .2s ease,background .2s ease;
+  }
+  .call-cta:hover{transform:translateY(-2px);background:var(--teal-deep)}
+  .call-cta svg{width:16px;height:16px}
+  .call-icon{display:none}
+  @media (max-width:760px){
+    .nav-links .lnk{display:none}
+    .call-cta .num{display:none}
+    .call-cta{padding:0;width:46px;height:46px;border-radius:50%;justify-content:center}
+    .call-cta svg{width:18px;height:18px}
+  }
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:clamp(2.4rem,6vw,4.4rem) 0 clamp(2.6rem,6vw,4rem)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4rem .85rem;color:var(--ink-soft);
+    margin-bottom:1.3rem;box-shadow:0 6px 18px -14px rgba(38,32,26,.5);
+  }
+  .status-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--ink-soft);position:relative}
+  .status-pill.open .dot{background:var(--teal)}
+  .status-pill.open .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;background:var(--teal);opacity:.35;animation:pulse 2s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.6);opacity:.5}100%{transform:scale(2.1);opacity:0}}
+  .status-pill.closed .dot{background:var(--pepper)}
+  h1.hero-title{font-size:clamp(2.6rem,7.2vw,4.7rem);margin:.2rem 0 1.1rem}
+  h1.hero-title em{font-style:normal;color:var(--teal-deep);font-family:var(--display);font-style:italic;font-weight:500}
+  .hero-sub{font-size:clamp(1rem,1.5vw,1.16rem);color:var(--ink-soft);max-width:34ch;margin-bottom:1.7rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;font-size:.96rem;border-radius:999px;padding:.85rem 1.5rem;transition:transform .2s ease,box-shadow .2s ease}
+  .btn-solid{background:var(--ink);color:var(--cream);box-shadow:0 14px 30px -16px rgba(38,32,26,.7)}
+  .btn-solid:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream)}
+  .hero-meta{margin-top:1.7rem;display:flex;gap:1.6rem;flex-wrap:wrap;font-size:.86rem;color:var(--ink-soft)}
+  .hero-meta b{font-family:var(--display);font-size:1.45rem;color:var(--ink);display:block;font-weight:700;line-height:1}
+  .hero-media{position:relative}
+  .hero-photo{
+    border-radius:20px;overflow:hidden;box-shadow:var(--shadow);position:relative;
+    aspect-ratio:4/4.4;border:1px solid rgba(38,32,26,.08);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,99,87,0) 55%,rgba(31,49,44,.42));pointer-events:none}
+  .hero-badge{
+    position:absolute;left:-14px;bottom:26px;background:var(--gold);color:#2a1d05;
+    font-family:var(--display);font-weight:700;font-size:.9rem;padding:.7rem 1rem;border-radius:14px;
+    box-shadow:0 16px 30px -14px rgba(0,0,0,.4);max-width:190px;line-height:1.25;transform:rotate(-3deg);
+  }
+  .hero-badge span{display:block;font-family:var(--body);font-weight:600;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-bottom:2px}
+  /* steam on hero plate */
+  .hero-steam{position:absolute;top:14%;left:0;right:0;height:40%;pointer-events:none;z-index:2;overflow:visible}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:1.8rem}
+    .hero-media{order:-1;max-width:440px}
+    .hero-badge{left:auto;right:-6px}
+  }
+
+  /* ===== marquee band ===== */
+  .band-marquee{background:var(--teal-deep);color:var(--cream);overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+  .marquee{display:flex;gap:0;white-space:nowrap;animation:scroll-x 34s linear infinite}
+  .marquee:hover{animation-play-state:paused}
+  .marquee span{font-family:var(--display);font-weight:500;font-style:italic;font-size:clamp(1.1rem,2.4vw,1.7rem);padding:.85rem 1.6rem;display:inline-flex;align-items:center;gap:1.6rem}
+  .marquee span::after{content:"✦";color:var(--gold);font-style:normal;font-size:.7em}
+  @keyframes scroll-x{to{transform:translateX(-50%)}}
+
+  /* ===== SECTION shell ===== */
+  section{padding:clamp(3.2rem,7vw,5.6rem) 0}
+  .sec-head{max-width:620px;margin-bottom:clamp(2rem,4vw,3rem)}
+  .sec-head h2{font-size:clamp(2rem,4.6vw,3.1rem);margin:.7rem 0 .8rem}
+  .sec-head p{color:var(--ink-soft);font-size:1.04rem}
+
+  /* ===== STORY band (alternating) ===== */
+  .story{background:var(--cream-2)}
+  .story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(1.8rem,5vw,4rem);align-items:center}
+  .story-photo{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/4.6}
+  .story-photo img{width:100%;height:100%;object-fit:cover}
+  .story-copy h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:.7rem 0 1.1rem}
+  .story-copy p{color:var(--ink-soft);margin-bottom:1rem;max-width:46ch}
+  .story-copy .sig{font-family:var(--display);font-style:italic;color:var(--teal-deep);font-size:1.2rem;margin-top:.4rem}
+  @media (max-width:840px){.story-grid{grid-template-columns:1fr;gap:1.6rem}.story-photo{order:-1;max-width:460px}}
+
+  /* ===== SIGNATURE: Daily Special flip cards ===== */
+  .specials{background:var(--cream)}
+  .flip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.9rem,1.8vw,1.4rem)}
+  @media (max-width:980px){.flip-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.flip-grid{grid-template-columns:1fr;max-width:340px;margin-inline:auto}}
+  .flip{
+    perspective:1400px;cursor:pointer;outline:none;border:0;background:none;padding:0;font:inherit;text-align:left;
+  }
+  .flip-inner{
+    position:relative;width:100%;aspect-ratio:3/4;border-radius:18px;
+    transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;
+    box-shadow:var(--shadow);
+  }
+  .flip[aria-pressed="true"] .flip-inner,
+  .flip:hover .flip-inner,
+  .flip:focus-visible .flip-inner{transform:rotateY(180deg)}
+  .flip-face{position:absolute;inset:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  .flip-front{background:#fff}
+  .flip-front img{width:100%;height:100%;object-fit:cover}
+  .flip-front .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,27,0) 38%,rgba(18,28,25,.82))}
+  .flip-front .label{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.05rem;color:#fdf8ee}
+  .flip-front .label .day{font-family:var(--body);font-weight:600;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
+  .flip-front .label h3{font-family:var(--display);font-weight:700;font-size:1.12rem;line-height:1.1;color:#fff}
+  .flip-front .hint{position:absolute;top:.7rem;right:.7rem;width:30px;height:30px;border-radius:50%;background:rgba(251,246,236,.92);display:grid;place-items:center;color:var(--teal-deep);font-size:.85rem;box-shadow:0 6px 16px -8px rgba(0,0,0,.6)}
+  /* steam over the hot dish on the front face */
+  .steam{position:absolute;top:8%;left:50%;width:60%;height:46%;transform:translateX(-50%);pointer-events:none;z-index:3}
+  .steam i{
+    position:absolute;bottom:0;width:10px;height:10px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,0) 70%);
+    filter:blur(2px);opacity:0;
+  }
+  .flip-front .steam i{animation:steam 4.4s ease-out infinite}
+  .steam i:nth-child(1){left:24%;animation-delay:0s}
+  .steam i:nth-child(2){left:46%;width:13px;height:13px;animation-delay:1.1s}
+  .steam i:nth-child(3){left:64%;animation-delay:2.2s}
+  .steam i:nth-child(4){left:38%;width:8px;height:8px;animation-delay:3.1s}
+  @keyframes steam{
+    0%{opacity:0;transform:translateY(0) scale(.7)}
+    18%{opacity:.7}
+    100%{opacity:0;transform:translateY(-78px) scaleX(2) scale(1.5)}
+  }
+  .flip[aria-pressed="true"] .steam i,.flip:hover .steam i{animation-play-state:paused;opacity:0}
+  @media (prefers-reduced-motion:reduce){.flip-front .steam i{animation:none}}
+  .flip-back{
+    transform:rotateY(180deg);background:linear-gradient(165deg,var(--teal),var(--teal-deep));
+    color:#f3fbf8;padding:1.3rem 1.25rem;display:flex;flex-direction:column;
+  }
+  .flip-back .day{font-weight:600;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+  .flip-back h3{font-family:var(--display);font-size:1.32rem;font-weight:700;margin-bottom:.6rem;color:#fff}
+  .flip-back p{font-size:.9rem;line-height:1.5;color:rgba(243,251,248,.9);flex:1}
+  .flip-back .price{margin-top:.9rem;font-family:var(--display);font-weight:700;font-size:1.35rem;color:#fff}
+  .flip-back .price small{font-family:var(--body);font-weight:500;font-size:.72rem;letter-spacing:.05em;color:rgba(243,251,248,.7);display:block;margin-top:.1rem}
+  .flip-note{text-align:center;color:var(--ink-soft);font-size:.86rem;margin-top:1.6rem}
+  .flip-note b{color:var(--teal-deep)}
+
+  /* ===== MENU columns (magazine) ===== */
+  .menu{background:var(--ink);color:var(--cream)}
+  .menu .kicker{color:var(--gold)}
+  .menu .kicker::before{background:var(--gold)}
+  .menu .sec-head h2{color:#fff}
+  .menu .sec-head p{color:rgba(251,246,236,.66)}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,5vw,4.5rem)}
+  @media (max-width:760px){.menu-cols{grid-template-columns:1fr;gap:2.4rem}}
+  .menu-cols h3{font-family:var(--display);font-size:1.05rem;color:var(--gold);letter-spacing:.02em;border-bottom:1px solid rgba(251,246,236,.16);padding-bottom:.6rem;margin-bottom:.4rem}
+  .m-row{display:flex;justify-content:space-between;gap:1rem;padding:.78rem 0;border-bottom:1px dashed rgba(251,246,236,.13);align-items:baseline}
+  .m-row:last-child{border-bottom:0}
+  .m-row .nm{font-weight:600;font-size:1.02rem}
+  .m-row .nm small{display:block;font-weight:400;font-size:.82rem;color:rgba(251,246,236,.58);margin-top:.1rem;max-width:32ch}
+  .m-row .pr{font-family:var(--display);font-weight:700;color:#fff;white-space:nowrap}
+  .menu-feast{margin-top:2.6rem;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.4rem,4vw,3rem);align-items:center;background:rgba(251,246,236,.05);border:1px solid rgba(251,246,236,.12);border-radius:18px;overflow:hidden}
+  .menu-feast img{width:100%;height:100%;object-fit:cover;min-height:240px}
+  .menu-feast .ff{padding:clamp(1.4rem,3vw,2.2rem)}
+  .menu-feast h3{border:0;color:#fff;font-size:1.5rem;margin-bottom:.6rem;padding:0}
+  .menu-feast p{color:rgba(251,246,236,.7);font-size:.95rem;max-width:42ch}
+  @media (max-width:680px){.menu-feast{grid-template-columns:1fr}.menu-feast img{min-height:200px}}
+
+  /* ===== reviews ===== */
+  .reviews{background:var(--cream-2)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
+  @media (max-width:860px){.rev-grid{grid-template-columns:1fr}}
+  .rev-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.5rem 1.5rem 1.4rem;box-shadow:0 14px 36px -28px rgba(38,32,26,.5);display:flex;flex-direction:column}
+  .stars{color:var(--gold);font-size:.95rem;letter-spacing:.12em;margin-bottom:.8rem}
+  .rev-card p{font-family:var(--display);font-style:italic;font-size:1.08rem;line-height:1.45;color:var(--ink);flex:1}
+  .rev-card .who{margin-top:1.1rem;font-weight:600;font-size:.85rem;color:var(--ink-soft)}
+  .rev-card .who span{color:var(--ink-soft);font-weight:400}
+
+  /* ===== VISIT + MAP ===== */
+  .visit-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.6rem,4vw,3rem);align-items:stretch}
+  @media (max-width:840px){.visit-grid{grid-template-columns:1fr}}
+  .visit-card{display:flex;flex-direction:column;gap:1.3rem}
+  .vc-block{border-top:1px solid var(--line);padding-top:1rem}
+  .vc-block .lab{font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:.45rem}
+  .vc-block .val{font-size:1.04rem;color:var(--ink)}
+  .vc-block .val a{border-bottom:1px solid var(--teal);color:var(--teal-deep)}
+  .hours-list{list-style:none;display:grid;gap:.35rem}
+  .hours-list li{display:flex;justify-content:space-between;gap:1rem;font-size:.96rem;padding:.18rem 0}
+  .hours-list li.today{color:var(--teal-deep);font-weight:600}
+  .hours-list li .d{color:var(--ink-soft)}
+  .hours-list li.today .d{color:var(--teal-deep)}
+  .hours-list li.closed-day .t{color:var(--pepper)}
+  .map-frame{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);min-height:360px;border:1px solid var(--line)}
+  .map-frame iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:none}
+  .map-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,140,125,.05),rgba(44,140,125,.0) 30%,rgba(31,49,44,.12));pointer-events:none}
+
+  /* ===== FOOTER ===== */
+  footer.site{background:var(--ink);color:var(--cream);padding:clamp(2.8rem,5vw,4rem) 0 1.8rem}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+  @media (max-width:760px){.foot-top{grid-template-columns:1fr;gap:1.8rem}}
+  .foot-brand{display:flex;align-items:center;gap:.7rem;font-family:var(--display);font-weight:700;font-size:1.4rem}
+  .foot-col h4{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+  .foot-col p,.foot-col a{color:rgba(251,246,236,.78);font-size:.95rem;line-height:1.7;display:block}
+  .foot-col a:hover{color:#fff}
+  .foot-cta{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;background:var(--teal);color:#fbf6ec;font-weight:600;padding:.7rem 1.2rem;border-radius:999px}
+  .foot-cta:hover{background:var(--teal-deep)}
+  .foot-bottom{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(251,246,236,.14);display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;align-items:center;font-size:.82rem;color:rgba(251,246,236,.55)}
+  .bysemaj{display:inline-flex;align-items:center;gap:.45rem;color:rgba(251,246,236,.6)}
+  .bysemaj a{color:var(--gold);border-bottom:1px solid rgba(216,154,58,.4)}
+  .bysemaj a:hover{color:#fff;border-bottom-color:#fff}
+  .bysemaj .pin{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+
+  /* mobile call float */
+  .mobile-call{display:none}
+  @media (max-width:760px){
+    .mobile-call{
+      display:flex;position:fixed;right:16px;bottom:16px;z-index:70;
+      width:56px;height:56px;border-radius:50%;background:var(--teal);color:#fff;
+      align-items:center;justify-content:center;box-shadow:0 16px 30px -10px rgba(31,99,87,.7);
+    }
+    .mobile-call svg{width:22px;height:22px}
+  }
+  :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Gealie Family Eatery, home">
+      <span class="mark" aria-hidden="true">G</span>
+      <span>Gealie<small>Family Eatery</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="lnk" href="#story">Our Table</a>
+      <a class="lnk" href="#specials">Daily Specials</a>
+      <a class="lnk" href="#menu">Menu</a>
+      <a class="lnk" href="#visit">Visit</a>
+      <a class="call-cta" href="tel:+19736774214" aria-label="Call Gealie Family Eatery at (973) 677-4214">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="num">(973) 677-4214</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="status-pill rise" id="statusPill"><span class="dot"></span><span id="statusText">Checking hours</span></p>
+      <h1 class="hero-title rise" style="--d:.05s">A Jamaican plate that tastes like <em>somebody&rsquo;s yard</em>.</h1>
+      <p class="hero-sub rise" style="--d:.12s">Oxtail that falls off the bone, jerk off the drum, rice and peas cooked down slow. Gealie Family Eatery has fed the Main Street block in the City of Orange real island cooking for years.</p>
+      <div class="hero-actions rise" style="--d:.18s">
+        <a class="btn btn-solid" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="tel:+19736774214">Call to order</a>
+      </div>
+      <div class="hero-meta rise" style="--d:.24s">
+        <div><b>4.0&#9733;</b>Google rated</div>
+        <div><b>9 AM</b>Open Tuesday to Saturday</div>
+        <div><b>183A</b>Main St, Orange NJ</div>
+      </div>
+    </div>
+    <div class="hero-media rise" style="--d:.1s">
+      <div class="hero-photo">
+        <div class="hero-steam" aria-hidden="true">
+          <div class="steam" style="left:34%;width:120px;height:90px;top:0"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <img src="https://images.pexels.com/photos/30746554/pexels-photo-30746554.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Bowls of Jamaican oxtail served over rice and peas on the counter at Gealie Family Eatery, with a warming tray behind them" loading="eager" width="900" height="990" />
+      </div>
+      <div class="hero-badge">
+        <span>The house plate</span>
+        Oxtail, rice &amp; peas, fried plantain
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="band-marquee" aria-hidden="true">
+  <div class="marquee">
+    <span>Oxtail</span><span>Jerk Chicken</span><span>Curry Goat</span><span>Brown Stew</span><span>Rice &amp; Peas</span><span>Beef Patties</span><span>Ackee &amp; Saltfish</span><span>Fried Plantain</span>
+    <span>Oxtail</span><span>Jerk Chicken</span><span>Curry Goat</span><span>Brown Stew</span><span>Rice &amp; Peas</span><span>Beef Patties</span><span>Ackee &amp; Saltfish</span><span>Fried Plantain</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-photo rise">
+      <img src="https://images.pexels.com/photos/6210449/pexels-photo-6210449.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Hands holding a bowl of golden fried sweet plantain at a family table with jerk chicken and corn alongside" loading="lazy" width="800" height="920" />
+    </div>
+    <div class="story-copy rise" style="--d:.08s">
+      <span class="kicker">Our Table</span>
+      <h2>Cooked the way it is cooked at home.</h2>
+      <p>Gealie is a family kitchen first and a restaurant second. The seasoning is built up over hours, not shaken from a jar. The thyme, the scotch bonnet, the pimento, the patience. You taste all of it.</p>
+      <p>Regulars walk in off Main Street, call out their order, and leave with a foil pan still warm in their hands. No fuss, no airs. Just generous portions of food that knows where it comes from.</p>
+      <p class="sig">&ldquo;Tastes like home.&rdquo; That is the whole goal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE: DAILY SPECIALS FLIP CARDS -->
+<section class="specials" id="specials">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="kicker">Hot off the line</span>
+      <h2>This week&rsquo;s daily specials.</h2>
+      <p>A different dish leads the steam table each day. Tap a card to see what comes on the plate. The kitchen sells out of the favorites, so call ahead if you have your heart set on one.</p>
+    </div>
+
+    <div class="flip-grid">
+      <!-- card 1 -->
+      <button class="flip rise" style="--d:.0s" aria-pressed="false" aria-label="Tuesday special, oxtail. Tap to see details.">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="hint" aria-hidden="true">&#8635;</span>
+            <span class="steam" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <img src="https://images.pexels.com/photos/27556981/pexels-photo-27556981.jpeg?auto=compress&cs=tinysrgb&w=700" alt="A bowl of Jamaican oxtail braised dark in its own gravy, topped with fresh thyme" loading="lazy" width="600" height="800" />
+            <span class="veil"></span>
+            <span class="label"><span class="day">Tuesday</span><h3>Brown Stew Oxtail</h3></span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="day">Tuesday</span>
+            <h3>Brown Stew Oxtail</h3>
+            <p>Oxtail braised down for hours with butter beans, pimento and thyme until it falls off the bone. Served over rice and peas with steamed cabbage.</p>
+            <div class="price">$14<small>Large portion, the one regulars come back for</small></div>
+          </div>
+        </div>
+      </button>
+      <!-- card 2 -->
+      <button class="flip rise" style="--d:.06s" aria-pressed="false" aria-label="Wednesday special, jerk chicken. Tap to see details.">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="hint" aria-hidden="true">&#8635;</span>
+            <span class="steam" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <img src="https://images.pexels.com/photos/27556985/pexels-photo-27556985.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Charred jerk chicken plated with rice and peas and golden fried plantain" loading="lazy" width="600" height="800" />
+            <span class="veil"></span>
+            <span class="label"><span class="day">Wednesday</span><h3>Jerk Chicken</h3></span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="day">Wednesday</span>
+            <h3>Jerk Chicken</h3>
+            <p>Smoky, charred and seasoned through with scotch bonnet and pimento. Comes with rice and peas and a side of sweet fried plantain.</p>
+            <div class="price">$12<small>Mild or fire, just ask</small></div>
+          </div>
+        </div>
+      </button>
+      <!-- card 3 -->
+      <button class="flip rise" style="--d:.12s" aria-pressed="false" aria-label="Thursday special, curry chicken. Tap to see details.">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="hint" aria-hidden="true">&#8635;</span>
+            <span class="steam" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <img src="https://images.pexels.com/photos/27568542/pexels-photo-27568542.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Jamaican curry chicken simmered with soft potato in a golden curry sauce" loading="lazy" width="600" height="800" />
+            <span class="veil"></span>
+            <span class="label"><span class="day">Thursday</span><h3>Curry Chicken</h3></span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="day">Thursday</span>
+            <h3>Curry Chicken</h3>
+            <p>Bone-in chicken simmered in a golden curry with soft potato that soaks up the gravy. Choose white rice or rice and peas on the side.</p>
+            <div class="price">$11<small>Curry goat available, ask for the day</small></div>
+          </div>
+        </div>
+      </button>
+      <!-- card 4 -->
+      <button class="flip rise" style="--d:.18s" aria-pressed="false" aria-label="Friday and Saturday, beef patties. Tap to see details.">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="hint" aria-hidden="true">&#8635;</span>
+            <span class="steam" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <img src="https://images.pexels.com/photos/27556962/pexels-photo-27556962.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Golden flaky Jamaican beef patties stacked on a white plate" loading="lazy" width="600" height="800" />
+            <span class="veil"></span>
+            <span class="label"><span class="day">Every day</span><h3>Beef Patties</h3></span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="day">Every day</span>
+            <h3>Beef Patties</h3>
+            <p>Flaky turmeric-gold crust around well-spiced beef, baked fresh through the day. The grab-and-go that walks out the door fastest.</p>
+            <div class="price">$3<small>Coco bread on the side for a proper patty</small></div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <p class="flip-note rise">Specials rotate with what the kitchen has cooking. <b>Call (973) 677-4214</b> to hear today&rsquo;s pot.</p>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="kicker">The Menu</span>
+      <h2>Plates, sides and the things you take home.</h2>
+      <p>Everything is cooked fresh and dished out in real portions. Prices are a guide, the kitchen has the final word at the counter.</p>
+    </div>
+
+    <div class="menu-cols">
+      <div class="rise">
+        <h3>Mains</h3>
+        <div class="m-row"><div class="nm">Brown Stew Oxtail<small>With butter beans, over rice and peas</small></div><div class="pr">$14</div></div>
+        <div class="m-row"><div class="nm">Curry Goat<small>Slow-cooked, bone in, deeply seasoned</small></div><div class="pr">$14</div></div>
+        <div class="m-row"><div class="nm">Jerk Chicken<small>Off the drum, smoky and charred</small></div><div class="pr">$12</div></div>
+        <div class="m-row"><div class="nm">Brown Stew Chicken<small>A house favorite with the gravy soaked in</small></div><div class="pr">$11</div></div>
+        <div class="m-row"><div class="nm">Curry Chicken<small>Golden curry with soft potato</small></div><div class="pr">$11</div></div>
+        <div class="m-row"><div class="nm">Escovitch Fish<small>Fried, dressed in peppers and onions</small></div><div class="pr">Market</div></div>
+      </div>
+      <div class="rise" style="--d:.08s">
+        <h3>Breakfast, sides &amp; patties</h3>
+        <div class="m-row"><div class="nm">Ackee &amp; Saltfish<small>The Saturday morning plate, with hard food</small></div><div class="pr">$13</div></div>
+        <div class="m-row"><div class="nm">Rice &amp; Peas<small>Cooked down in coconut milk</small></div><div class="pr">$4</div></div>
+        <div class="m-row"><div class="nm">Steamed Cabbage<small>With carrot and a little pepper</small></div><div class="pr">$4</div></div>
+        <div class="m-row"><div class="nm">Fried Plantain<small>Sweet, caramelized at the edges</small></div><div class="pr">$4</div></div>
+        <div class="m-row"><div class="nm">Beef Patty<small>Flaky, baked fresh through the day</small></div><div class="pr">$3</div></div>
+        <div class="m-row"><div class="nm">Coco Bread<small>Soft and folded, made for a patty</small></div><div class="pr">$2</div></div>
+      </div>
+    </div>
+
+    <div class="menu-feast rise">
+      <img src="https://images.pexels.com/photos/36857725/pexels-photo-36857725.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A full Jamaican plate of escovitch fish with rice and peas and a cabbage and carrot slaw" loading="lazy" width="800" height="600" />
+      <div class="ff">
+        <h3>Build the family plate</h3>
+        <p>Pick a main, two sides and a slab of plantain, and you have a meal that feeds a whole evening. Calling ahead means it is hot and bagged when you reach the counter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFT / JERK band -->
+<section class="story" id="craft">
+  <div class="wrap story-grid">
+    <div class="story-copy rise">
+      <span class="kicker">The Jerk</span>
+      <h2>Smoke does the work the spice can&rsquo;t.</h2>
+      <p>Real jerk is not a sauce poured on at the end. It is a wet rub of scotch bonnet, thyme, scallion and pimento that sits on the meat, then cooks low over coals until the char and the smoke meet in the middle.</p>
+      <p>That is why a Gealie jerk plate hits different from the steam-table version down the way. It is patience you can taste.</p>
+    </div>
+    <div class="story-photo rise" style="--d:.08s">
+      <img src="https://images.pexels.com/photos/36878311/pexels-photo-36878311.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Jerk meat cooking over an open charcoal drum grill with smoke rising in a backyard" loading="lazy" width="800" height="920" />
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="kicker">Word on Main Street</span>
+      <h2>People come back for a reason.</h2>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card rise">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Phenomenal Caribbean food that tastes like home. The brown stew chicken with rice and peas and plantain is the one I keep ordering.</p>
+        <div class="who">A regular <span>via Google</span></div>
+      </article>
+      <article class="rev-card rise" style="--d:.07s">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Hands down some of the best Jamaican food in the area. The oxtail is a large portion and worth every dollar.</p>
+        <div class="who">Neighborhood diner <span>via Google</span></div>
+      </article>
+      <article class="rev-card rise" style="--d:.14s">
+        <div class="stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p>The staff makes you feel welcome and the service is fast. Best Caribbean spot in the area for authentic dishes at honest prices.</p>
+        <div class="who">Local guide <span>via Google</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT + MAP -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="kicker">Find Us</span>
+      <h2>On Main Street, in the City of Orange.</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card rise">
+        <div class="vc-block" style="border-top:0;padding-top:0">
+          <div class="lab">Address</div>
+          <div class="val"><a href="https://www.google.com/maps?q=183A+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">183A Main St, City of Orange, NJ 07050</a></div>
+        </div>
+        <div class="vc-block">
+          <div class="lab">Order &amp; questions</div>
+          <div class="val"><a href="tel:+19736774214">(973) 677-4214</a></div>
+        </div>
+        <div class="vc-block">
+          <div class="lab">Hours</div>
+          <ul class="hours-list" id="hoursList">
+            <li data-day="0" class="closed-day"><span class="d">Sunday</span><span class="t">Closed</span></li>
+            <li data-day="1" class="closed-day"><span class="d">Monday</span><span class="t">Closed</span></li>
+            <li data-day="2"><span class="d">Tuesday</span><span class="t">9 AM &ndash; 9 PM</span></li>
+            <li data-day="3"><span class="d">Wednesday</span><span class="t">9 AM &ndash; 9 PM</span></li>
+            <li data-day="4"><span class="d">Thursday</span><span class="t">9 AM &ndash; 9 PM</span></li>
+            <li data-day="5"><span class="d">Friday</span><span class="t">9 AM &ndash; 9 PM</span></li>
+            <li data-day="6"><span class="d">Saturday</span><span class="t">9 AM &ndash; 9 PM</span></li>
+          </ul>
+        </div>
+        <div class="vc-block">
+          <div class="lab">Follow</div>
+          <div class="val"><a href="https://www.instagram.com/gealiesrestaurantnj/" target="_blank" rel="noopener">@gealiesrestaurantnj</a></div>
+        </div>
+      </div>
+      <div class="map-frame rise" style="--d:.08s">
+        <iframe
+          title="Map showing Gealie Family Eatery at 183A Main Street, City of Orange, New Jersey"
+          src="https://www.google.com/maps?q=183A+Main+St,+City+of+Orange,+NJ+07050&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col">
+        <div class="foot-brand"><span class="mark" aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 32% 30%,var(--teal),var(--teal-deep));color:#FBF6EC;display:grid;place-items:center;font-size:.95rem">G</span>Gealie Family Eatery</div>
+        <p style="color:rgba(251,246,236,.7);font-size:.95rem;margin-top:.9rem;max-width:34ch">Authentic Jamaican home cooking on Main Street in the City of Orange, New Jersey. Dine in, take out, or call your order ahead.</p>
+        <a class="foot-cta" href="tel:+19736774214">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (973) 677-4214
+        </a>
+      </div>
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <a href="https://www.google.com/maps?q=183A+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">183A Main St<br>City of Orange, NJ 07050</a>
+        <a href="https://www.instagram.com/gealiesrestaurantnj/" target="_blank" rel="noopener" style="margin-top:.6rem">@gealiesrestaurantnj</a>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Tuesday to Saturday<br>9 AM &ndash; 9 PM</p>
+        <p style="margin-top:.5rem">Sunday &amp; Monday<br>Closed</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr"></span> Gealie Family Eatery. Real island cooking, Orange NJ.</span>
+      <span class="bysemaj"><span class="pin" aria-hidden="true"></span>Built by <a href="https://bysemaj.com" target="_blank" rel="noopener">bysemaj.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+19736774214" aria-label="Call Gealie Family Eatery">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<script>
+  // Pure-CSS reveals: arm on load, force-done as a safety net.
+  (function(){
+    var el=document.documentElement;
+    el.classList.add('reveal-armed');
+    setTimeout(function(){el.classList.add('reveal-done');},2600);
+  })();
+
+  // Nav scrolled state
+  var nav=document.querySelector('header.nav');
+  function onScroll(){ if(window.scrollY>16){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // Flip cards: click + keyboard toggle (hover handled in CSS)
+  document.querySelectorAll('.flip').forEach(function(card){
+    card.addEventListener('click',function(){
+      var on=card.getAttribute('aria-pressed')==='true';
+      card.setAttribute('aria-pressed', on?'false':'true');
+    });
+  });
+
+  // Open / Closed status, America/New_York, Tue-Sat 9 AM - 9 PM, Sun & Mon closed.
+  (function(){
+    var OPEN_DAYS={2:[9,21],3:[9,21],4:[9,21],5:[9,21],6:[9,21]}; // day:[openHr,closeHr]
+    var DAY_NAMES=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    function nyParts(){
+      var f=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hour12:false});
+      var parts=f.formatToParts(new Date());var o={};
+      parts.forEach(function(p){o[p.type]=p.value;});
+      var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+      var hr=parseInt(o.hour,10); if(hr===24)hr=0;
+      return {day:map[o.weekday],hr:hr,min:parseInt(o.minute,10)};
+    }
+    function fmt(h){ var ap=h>=12?'PM':'AM'; var hh=h%12; if(hh===0)hh=12; return hh+' '+ap; }
+    var now=nyParts();
+    var pill=document.getElementById('statusPill');
+    var txt=document.getElementById('statusText');
+    var todayHrs=OPEN_DAYS[now.day];
+    var isOpen=false;
+    if(todayHrs){
+      var mins=now.hr*60+now.min;
+      isOpen=mins>=todayHrs[0]*60 && mins<todayHrs[1]*60;
+    }
+    if(isOpen){
+      pill.classList.add('open');
+      txt.textContent='Open now until '+fmt(todayHrs[1]);
+    }else{
+      pill.classList.add('closed');
+      // find next opening day
+      var nextDay=now.day, found=null;
+      for(var i=0;i<7;i++){
+        var d=(now.day+i)%7;
+        if(OPEN_DAYS[d]){
+          if(i===0 && (now.hr*60+now.min) < OPEN_DAYS[d][0]*60){ found={d:d,when:'today'}; break; }
+          if(i>0){ found={d:d,when:(i===1?'tomorrow':DAY_NAMES[d])}; break; }
+        }
+      }
+      if(found){
+        var oh=fmt(OPEN_DAYS[found.d][0]);
+        txt.textContent='Closed now. Opens '+(found.when==='today'?'today':found.when)+' at '+oh;
+      }else{
+        txt.textContent='Call for hours';
+      }
+    }
+    // highlight today in hours list
+    var li=document.querySelector('#hoursList li[data-day="'+now.day+'"]');
+    if(li) li.classList.add('today');
+  })();
+</script>
+</body>
+</html>
